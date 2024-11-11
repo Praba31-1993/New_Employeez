@@ -12,7 +12,7 @@ export default function Home() {
       <Component {...pageProps} />
     </ColorProvider> */}
   useEffect(() => {
-    router.replace('./logincomponent'); // Redirect to the Login page
+    router.replace('./login'); // Redirect to the Login page
   }, [router]);
 
   return null; 

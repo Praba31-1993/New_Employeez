@@ -21,7 +21,7 @@ export default function forgetpassword() {
       console.log('OTP verification clicked')
   
       // Now manually navigate to the /setpassword page
-      router.push('/setpassword')
+      router.push('/set_password')
     }
     // State to control visibility of OTP input and Verify button
     const [otpVisible, setOtpVisible] = useState(false);
@@ -105,7 +105,7 @@ export default function forgetpassword() {
                             <div className="row pt-2">
                                 <div className="col-12" style={{ alignSelf: "center" }}>
                                     <p className="forgetpassword mb-0 para text-end">
-                                        <Link href="./logincomponent" >Revisit Login</Link>
+                                        <Link href="./login" >Revisit Login</Link>
                                     </p>
                                 </div>
                             </div>

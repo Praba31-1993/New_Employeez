@@ -32,7 +32,7 @@ export default function Setpassword() {
                         <div className="row pt-2">
                                 <div className="col-12" style={{ alignSelf: "center" }}>
                                     <p className="forgetpassword mb-0 para text-end">
-                                        <Link href="./logincomponent" >Revisit Login</Link>
+                                        <Link href="./login" >Revisit Login</Link>
                                     </p>
                                 </div>
                             </div>
