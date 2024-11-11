@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const protectedRoutes = ["/sidemenu"];
+const protectedRoutes = ["/sidebar"];
 
 export default function middleware(req: NextRequest) {
   // Get the 'auth' cookie from the request headers

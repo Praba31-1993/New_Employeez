@@ -25,7 +25,7 @@ export default function Login() {
     document.cookie = "auth=true; path=/; max-age=86400"; // Cookie expires in 1 day (86400 seconds)
 
     // Now manually navigate to the /setpassword page
-    router.push("/sidemenu");
+    router.push("/sidebar");
   };
   return (
     <section className="login">
