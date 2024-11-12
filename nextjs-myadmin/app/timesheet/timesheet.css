@@ -2,93 +2,160 @@
     margin-left: unset !important;
     overflow: hidden !important;
 }
+
 .css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
-    background-color:#FF6363 !important;
+    background-color: #FF6363 !important;
 }
+
 .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover {
     will-change: background-color;
     background-color: #FF6363 !important;
 }
+
 .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
     background-color: #FF6363 !important;
 }
-.round{
+
+.round {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #FF6363;
 }
-.vacantionround{
+
+.vacantionround {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #EE37FF;
 }
-.css-5wchs2-MuiDateCalendar-root{
+
+.css-5wchs2-MuiDateCalendar-root {
     width: fit-content !important;
     height: unset !important;
 }
-.css-1n1xn3x-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition{
+
+.css-1n1xn3x-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition {
     min-height: unset !important;
     position: static !important;
     overflow: hidden !important;
 }
-.css-1nxbkmn-MuiPickersCalendarHeader-root{
+
+.css-1nxbkmn-MuiPickersCalendarHeader-root {
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+
 .css-1n1xn3x-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition>* {
     position: static !important;
 }
-.approverlist img{
+
+.approverlist img {
     border-radius: 50%;
 }
-.roles h5{
+
+.roles h5 {
     color: #6D6777;
 }
-.accordion-button:focus{
-    box-shadow:unset !important;
+
+.accordion-button:focus {
+    box-shadow: unset !important;
 }
-.accordion-button{
+
+.accordion-button {
     background-color: #f5f5f5;
 }
-.accordion-button:after{
+
+.accordion-button:after {
     margin-left: 10%;
 }
+
 .accordion-button:not(.collapsed) {
-    box-shadow:unset !important;
-   background-color:#f5f5f5 !important;
+    box-shadow: unset !important;
+    background-color: #f5f5f5 !important;
 }
+
 .collapse {
     visibility: inherit !important;
 }
-.accordion-item{
-    background-color:unset !important;
+
+.accordion-item {
+    background-color: unset !important;
 }
-.accordion-body{
+
+.accordion-body {
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
-.borderright{
+
+.borderright {
     border-right: 1px solid #8d8d8d4f;
 }
+
 .accordion-button:after {
     background-image: url(../assets/img/keyboard_arrow_down.png) !important;
 }
-.showpopupactive {
-    transform: translateZ(0);
+
+.summarysection {
+    background: white;
+    width: 47%;
+    margin-left: auto;
+    height: 100%;
 }
 
 .showpopup {
     position: fixed;
+    width: 100%;
     right: 0;
     top: 0;
-    background: white;
+    background: rgba(27, 26, 26, 0.288);
     z-index: 1132;
     height: 100%;
     transform: translate3d(100%, 0, 0);
     transition: transform .5s ease;
     overflow: hidden;
     overflow-y: auto;
+}
+
+.showpopupactive {
+    transform: translateZ(0);
+}
+
+.summary {
+    border-bottom: 1px solid #8d8d8d4f;
+}
+
+.summarydetails {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+    width: 100%;
+}
+
+.summarydetails h5 {
+    font-size: 15px;
+    font-family: Inter, sans-serif;
+}
+
+.summarydetails svg {
+    color: white;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #FF6363;
+    border-radius: 50%;
+}
+
+.summarydetails div {
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #FF6363;
+    border-radius: 50%;
 }
