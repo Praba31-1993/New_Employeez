@@ -73,9 +73,22 @@
 .borderright{
     border-right: 1px solid #8d8d8d4f;
 }
-/* .accordion-button:after {
+.accordion-button:after {
     background-image: url(../assets/img/keyboard_arrow_down.png) !important;
-} */
+}
+.showpopupactive {
+    transform: translateZ(0);
+}
 
-
-
+.showpopup {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: white;
+    z-index: 1132;
+    height: 100%;
+    transform: translate3d(100%, 0, 0);
+    transition: transform .5s ease;
+    overflow: hidden;
+    overflow-y: auto;
+}

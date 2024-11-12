@@ -8,11 +8,11 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-// import calendar from '../assets/img/calendar_icon.png';
-// import user from '../assets/img/Ellipse14.png';
-// import carry from '../assets/img/carry_on_bag_icon.png';
-// import gift from '../assets/img/gift_icon.png';
-// import docs from '../assets/img/docs.png';
+import calendar from '../assets/img/calendar_icon.png';
+import user from '../assets/img/Ellipse 14.png';
+import carry from '../assets/img/carry_on_bag_icon.png';
+import gift from '../assets/img/gift_icon.png';
+import docs from '../assets/img/docs.png';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,7 +30,7 @@ export default function Timesheet() {
             document.body.classList.remove('dashboard-body');
         };
     }, []);
-
+    
 
     return (
         <>
@@ -58,11 +58,11 @@ export default function Timesheet() {
                                 <div className="col-lg-12 col-sm-6">
                                     {/* timesheet approver */}
                                     <div className="timesheetdetails  align-items-center d-flex mt-4">
-                                        {/* <Image src={calendar} alt={""} /> */}
+                                        <Image src={calendar} alt={""} />
                                         <p className="para ps-2 mb-0 unselectcolor">Timesheet approver</p>
                                     </div>
                                     <div className="approverlist  align-items-center d-flex mt-2">
-                                        {/* <Image src={user} alt={""} /> */}
+                                        <Image src={user} alt={""} />
                                         <div className="roles">
                                             <h5 className="para ps-2 mb-0 ">Timesheet approver</h5>
                                             <p className="para2 ps-2 mb-0 mt-1 shade">Timesheet approver</p>
@@ -70,14 +70,14 @@ export default function Timesheet() {
                                     </div>
                                     {/* list of holidays */}
                                     <div className="timesheetdetails mb-1 align-items-center d-flex mt-4">
-                                        {/* <Image src={gift} alt={""} /> */}
+                                        <Image src={gift} alt={""} />
                                         <p className="para ps-2 mb-0 unselectcolor">List of holidays</p>
                                     </div>
                                     <div className="d-flex pt-1 align-items-center"><div className="round mr-2" ></div><p className="para mb-0 textheader">Diwali 31 Oct 2024</p></div>
                                     <div className="d-flex pt-1 align-items-center"><div className="round mr-2" ></div><p className="para mb-0 textheader">Extended 01 Nov 2024</p></div>
                                     {/* vacation */}
                                     <div className="timesheetdetails mb-1 align-items-center d-flex mt-4">
-                                        {/* <Image src={carry} alt={""} /> */}
+                                        <Image src={carry} alt={""} />
                                         <p className="para ps-2 mb-0 unselectcolor">Vacations</p>
                                     </div>
                                     <div className="d-flex pt-1 align-items-center"><div className="vacantionround mr-2" ></div><p className="para mb-0 textheader">23 Oct 2024</p></div>
@@ -93,7 +93,7 @@ export default function Timesheet() {
                                             <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                                 <div className="accordion-body py-2 px-3 mt-3">
                                                     <div className="timesheetdetails  align-items-center d-flex ">
-                                                        {/* <Image src={docs} alt={""} /> */}
+                                                        <Image src={docs} alt={""} />
                                                         <p className="para ps-2 mb-0 unselectcolor">Document</p>
                                                     </div>
                                                 </div>
@@ -118,6 +118,14 @@ export default function Timesheet() {
                                  </button>
                             </div>
                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* summary of period */}
+                <div className="showpopup">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className=""></div>
                         </div>
                     </div>
                 </div>
