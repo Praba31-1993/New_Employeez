@@ -15,6 +15,8 @@ interface ISidebarItem {
 interface ISubItem {
   name: string;
   path: string;
+  icon: LucideIcon;
+
 }
 
 const SidebarItem = ({ item }: { item: ISidebarItem }) => {
@@ -49,9 +51,9 @@ const SidebarItem = ({ item }: { item: ISidebarItem }) => {
     `}
         onClick={onClick}
       >
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 ">
           <Icon size={20} />
-          <p className="text-sm font-semibold">{name} </p>
+          <p className="text-sm font-semibold mb-0">{name} </p>
         </div>
         {items && items.length > 0 && <ChevronDown size={18} />}
       </div>

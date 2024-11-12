@@ -1,4 +1,10 @@
 "use client";
+import logo from "../assets/img/107.png";
+import Image from "next/image";
+import React, { use, useEffect } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import {
   LucideIcon,
   LayoutDashboard,
@@ -8,6 +14,8 @@ import {
   WalletCards,
 } from "lucide-react";
 import SidebarItem from "./item";
+import RadioButtons from "../reusable_component/RadioButtons";
+// import RadioButtons from '../reusable_component/RadioButtons';
 
 interface ISidebarItem {
   name: string;
@@ -19,29 +27,30 @@ interface ISidebarItem {
 interface ISubItem {
   name: string;
   path: string;
+  icon: LucideIcon;
 }
 
 const items: ISidebarItem[] = [
   {
     name: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     icon: LayoutDashboard,
   },
   {
-    name: "Transaction",
-    path: "/login",
+    name: "Timesheet",
+    path: "/timesheet",
     icon: BadgeDollarSign,
   },
-  {
-    name: "Payment",
-    path: "/payment",
-    icon: WalletCards,
-  },
-  {
-    name: "Accounts",
-    path: "/accounts",
-    icon: CircleUserRound,
-  },
+  // {
+  //   name: "Payment",
+  //   path: "/payment",
+  //   icon: WalletCards,
+  // },
+  // {
+  //   name: "Accounts",
+  //   path: "/accounts",
+  //   icon: CircleUserRound,
+  // },
   {
     name: "Settings",
     path: "/settings",
@@ -49,25 +58,44 @@ const items: ISidebarItem[] = [
     items: [
       {
         name: "General",
-        path: "/settings",
+        path: "/settings/general",
+        icon: BadgeDollarSign,
       },
       {
         name: "Security",
         path: "/settings/security",
+        icon: LayoutDashboard,
       },
       {
         name: "Notifications",
         path: "/settings/notifications",
+        icon: BadgeDollarSign,
       },
     ],
   },
 ];
 
 const Sidebar = () => {
+  const [selectedValue, setSelectedValue] = React.useState(false);
+
+  const handleChange = () => {
+    setSelectedValue((prev) => !prev); // Toggle the value
+  };
+
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
   return (
     <div className="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-10 p-4">
       <div className="flex flex-col space-y-10 w-full">
-        <img className="h-10 w-fit" src="/logo-expanded.png" alt="Logo" />
+        <div className="flex ">
+          <Image src={logo} alt={""} />
+          <Checkbox
+            {...label}
+            className="mt-3"
+            icon={<RadioButtonCheckedIcon sx={{ color: "red" }} />} // Use sx to set icon color to red
+            checkedIcon={<RadioButtonUncheckedIcon sx={{ color: "red" }} />} // Use sx to set checked icon color to red
+          />
+        </div>
         <div className="flex flex-col space-y-2">
           {items.map((item, index) => (
             <SidebarItem key={index} item={item} />

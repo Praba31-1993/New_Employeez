@@ -7,10 +7,7 @@ import { ColorProvider } from './ColorContext/page';
 // import { useColor } from '../ColorContext/page';
 export default function Home() {
   const router = useRouter();
-  // {Component, pageProps }: AppProps
-{/* <ColorProvider>
-      <Component {...pageProps} />
-    </ColorProvider> */}
+
   useEffect(() => {
     router.replace('./login'); // Redirect to the Login page
   }, [router]);
