@@ -49,28 +49,28 @@ const items: ISidebarItem[] = [
   //   path: "/accounts",
   //   icon: CircleUserRound,
   // },
-  {
-    name: "Settings",
-    path: "/settings",
-    icon: Settings,
-    items: [
-      {
-        name: "General",
-        path: "/timesheet",
-        icon: BadgeDollarSign,
-      },
-      {
-        name: "Security",
-        path: "/dashboard",
-        icon: LayoutDashboard,
-      },
-      {
-        name: "Notifications",
-        path: "/settings/notifications",
-        icon: BadgeDollarSign,
-      },
-    ],
-  },
+  // {
+  //   name: "Settings",
+  //   path: "/settings",
+  //   icon: Settings,
+  //   items: [
+  //     {
+  //       name: "General",
+  //       path: "/timesheet",
+  //       icon: BadgeDollarSign,
+  //     },
+  //     {
+  //       name: "Security",
+  //       path: "/dashboard",
+  //       icon: LayoutDashboard,
+  //     },
+  //     {
+  //       name: "Notifications",
+  //       path: "/settings/notifications",
+  //       icon: BadgeDollarSign,
+  //     },
+  //   ],
+  // },
 ];
 
 const Sidebar = () => {
@@ -85,9 +85,9 @@ const Sidebar = () => {
   console.log("checked", checked);
 
   return (
-    <div className="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-10 ">
-      <div className="flex flex-col space-y-10 w-4/5 rounded-r-50">
-        <div className="flex ">
+    <div className="fixed top-0 left-0 h-screen w-1/6 bg-white shadow-lg z-10 " >
+      <div className="flex flex-col space-y-10 w-4/5 rounded-r-50 " >
+        <div className="flex ml-7 justify-between" >
           <Image src={logo} alt={""} />
           <Checkbox
             {...label}

@@ -1,32 +1,36 @@
-import { LucideIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+"use client";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useMemo } from "react";
+import { ChevronDown, LucideIcon } from "lucide-react";
 
-interface ISubMenuItem {
-  item: {
-    name: string;
-    path: string;
-    icon: LucideIcon;
-  };
-  isActive: boolean;
+interface ISubItem {
+  name: string;
+  path: string;
+  icon: LucideIcon;
 }
 
-const SubMenuItem = ({ item, isActive }: ISubMenuItem) => {
-  const router = useRouter();
+const SubMenuItem = ({ item }: { item: ISubItem }) => {
   const { name, path, icon: Icon } = item;
+  const router = useRouter();
+  const pathname = usePathname();
 
   const onClick = () => {
     router.push(path);
   };
 
+  const isActive = useMemo(() => path === pathname, [path, pathname]);
+
   return (
     <div
-      className={`flex items-center p-3 rounded-r-full cursor-pointer ${
-        isActive ? 'bg-red-500 text-white' : 'hover:text-sidebar-active'
+      className={`text-sm hover:text-sidebar-active hover:font-semibold cursor-pointer ${
+        isActive ? "text-sidebar-active font-semibold" : ""
       }`}
       onClick={onClick}
     >
-      <Icon size={20} />
-      <p className="text-sm font-semibold mb-0 ml-3">{name}</p>
+      <div className="flex items-center space-x-2 px-2">
+        <Icon size={20} />
+        <p className="text-sm font-semibold mb-0">{name} </p>
+      </div>
     </div>
   );
 };
