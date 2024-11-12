@@ -14,8 +14,6 @@ import {
   WalletCards,
 } from "lucide-react";
 import SidebarItem from "./item";
-import RadioButtons from "../reusable_component/RadioButtons";
-// import RadioButtons from '../reusable_component/RadioButtons';
 
 interface ISidebarItem {
   name: string;
@@ -77,9 +75,10 @@ const items: ISidebarItem[] = [
 
 const Sidebar = () => {
   const [selectedValue, setSelectedValue] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
 
-  const handleChange = () => {
-    setSelectedValue((prev) => !prev); // Toggle the value
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
   };
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -92,8 +91,18 @@ const Sidebar = () => {
           <Checkbox
             {...label}
             className="mt-3"
-            icon={<RadioButtonCheckedIcon sx={{ color: "red" }} />} // Use sx to set icon color to red
-            checkedIcon={<RadioButtonUncheckedIcon sx={{ color: "red" }} />} // Use sx to set checked icon color to red
+            checked={checked}
+            onChange={handleChange}
+            icon={
+              <RadioButtonCheckedIcon
+                sx={{ color: "red" }}
+              />
+            }
+            checkedIcon={
+              <RadioButtonUncheckedIcon
+                sx={{ color:"red" }}
+              />
+            }
           />
         </div>
         <div className="flex flex-col space-y-2">
