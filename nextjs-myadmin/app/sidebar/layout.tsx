@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex">
         <Sidebar />
-        <main className="flex-grow p-4 ml-64">{children}</main>
+        <main className="flex-grow p-4">{children}</main>
       </body>
     </html>
   );
