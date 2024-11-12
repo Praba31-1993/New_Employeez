@@ -53,7 +53,7 @@ const items: ISidebarItem[] = [
   //   name: "Settings",
   //   path: "/settings",
   //   icon: Settings,
-  //   items: [
+  //   subItems: [
   //     {
   //       name: "General",
   //       path: "/timesheet",
