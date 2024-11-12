@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      borderRadius: {
+        'r-50': '50%',
+      },
     },
   },
   plugins: [],
