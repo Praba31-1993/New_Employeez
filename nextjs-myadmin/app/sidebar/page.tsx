@@ -56,7 +56,7 @@ const Sidebar = ({ children }: SidebarProps) => {
     },
     {
       name: "Timesheet",
-      path: "/product",
+      path: "/timesheet",
       icon: timesheetWhite,
       inactive: timesheetGrey,
     },
