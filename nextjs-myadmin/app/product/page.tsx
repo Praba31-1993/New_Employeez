@@ -1,14 +1,14 @@
 import React from "react";
 import Sidebar from "../sidebar/page";
 
-const Dashboard = () => {
+const Product = () => {
   return (
     <div style={{background:'#F5F5F5'}}>
-      < Sidebar>
-        <p>Dashboard</p>
+      <Sidebar>
+        <p>Product</p>
       </Sidebar>
     </div>
   );
 };
 
-export default Dashboard;
+export default Product;
