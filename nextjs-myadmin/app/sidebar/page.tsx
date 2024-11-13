@@ -1,12 +1,11 @@
 "use client";
 import logo from "../assets/img/107.png";
 import Image from "next/image";
-import React, { use, useEffect } from "react";
+import React, { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import {
-  LucideIcon,
   LayoutDashboard,
   BadgeDollarSign,
   CircleUserRound,
@@ -14,18 +13,19 @@ import {
   WalletCards,
 } from "lucide-react";
 import SidebarItem from "./item";
+import "./sidebar.css";
 
 interface ISidebarItem {
   name: string;
   path: string;
-  icon: LucideIcon;
+  icon: any;
   items?: ISubItem[];
 }
 
 interface ISubItem {
   name: string;
   path: string;
-  icon: LucideIcon;
+  icon: any;
 }
 
 const items: ISidebarItem[] = [
@@ -39,69 +39,53 @@ const items: ISidebarItem[] = [
     path: "/timesheet",
     icon: BadgeDollarSign,
   },
-  // {
-  //   name: "Payment",
-  //   path: "/payment",
-  //   icon: WalletCards,
-  // },
-  // {
-  //   name: "Accounts",
-  //   path: "/accounts",
-  //   icon: CircleUserRound,
-  // },
-  // {
-  //   name: "Settings",
-  //   path: "/settings",
-  //   icon: Settings,
-  //   subItems: [
-  //     {
-  //       name: "General",
-  //       path: "/timesheet",
-  //       icon: BadgeDollarSign,
-  //     },
-  //     {
-  //       name: "Security",
-  //       path: "/dashboard",
-  //       icon: LayoutDashboard,
-  //     },
-  //     {
-  //       name: "Notifications",
-  //       path: "/settings/notifications",
-  //       icon: BadgeDollarSign,
-  //     },
-  //   ],
-  // },
+  {
+    name: "Settings",
+    path: "/settings",
+    icon: Settings,
+    items: [
+      { name: "General", path: "/settings/general", icon: BadgeDollarSign },
+      { name: "Security", path: "/settings/security", icon: LayoutDashboard },
+      { name: "Notifications", path: "/settings/notifications", icon: BadgeDollarSign },
+    ],
+  },
 ];
 
 const Sidebar = () => {
-  const [checked, setChecked] = React.useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsLocked(event.target.checked);
   };
 
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-  console.log("checked", checked);
+  const label = { inputProps: { "aria-label": "Toggle Sidebar Expand" } };
 
   return (
-    <div className="fixed top-0 left-0 h-screen w-1/6 bg-white shadow-lg z-10 " >
-      <div className="flex flex-col space-y-10 w-4/5 rounded-r-50 " >
-        <div className="flex ml-7 justify-between" >
-          <Image src={logo} alt={""} />
-          <Checkbox
-            {...label}
-            className="mt-3"
-            checked={checked}
-            onChange={handleChange}
-            icon={<RadioButtonUncheckedIcon sx={{ color: "red" }} />}
-            checkedIcon={<RadioButtonCheckedIcon sx={{ color: "red" }} />}
-          />
+    <div
+      className={`fixed top-0 left-0 h-screen bg-white shadow-lg z-10 transition-width duration-300 
+      ${isExpanded || isLocked ? "w-48" : "w-20 hover:w-48"}`}
+      onMouseEnter={() => setIsExpanded(true)}
+      onMouseLeave={() => !isLocked && setIsExpanded(false)}
+    >
+      <div className="flex flex-col items-center w-full pt-6 space-y-6">
+        <div className="flex justify-between items-center w-full px-4">
+          <Image src={logo} alt="Logo" width={isExpanded || isLocked ? 30 : 20} height={isExpanded || isLocked ? 30 : 20} />
+          {(isExpanded || isLocked) && (
+            <Checkbox
+              {...label}
+              className="mt-3"
+              checked={isLocked}
+              onChange={handleCheckboxChange}
+              icon={<RadioButtonUncheckedIcon sx={{ color: "red" }} />}
+              checkedIcon={<RadioButtonCheckedIcon sx={{ color: "red" }} />}
+            />
+          )}
         </div>
 
-        <div className="flex flex-col space-y-2">
+        <div className="w-full flex flex-col space-y-2">
           {items.map((item, index) => (
-            <SidebarItem key={index} item={item} />
+            <SidebarItem key={index} item={item} isExpanded={isExpanded || isLocked} />
           ))}
         </div>
       </div>
