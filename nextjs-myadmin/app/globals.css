@@ -59,6 +59,7 @@ code {
 .para {
   font-family: "Inter", sans-serif !important;
   font-size: 14px;
+  font-weight: 500;
 }
 .para2{
   font-family: "Inter", sans-serif;
@@ -76,23 +77,16 @@ code {
 }
 
 
-.mutlicolourbtn:hover {
+/* .mutlicolourbtn:hover {
   color: #ef4140;
   background-color: #ffffff !important;
   border: 1px solid #ef4140;
-  /* box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10); */
-}
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+} */
 .red .mutlicolourbtn {
   background-color: #FF6363 !important;
 }
 
-
-.red .mutlicolourbtn:hover {
-  color: #ef4140  !important;
-  border: 1px solid #ef4140  !important;
-  background-color: #ffffff !important;
-  /* box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10); */
-}
 
 
 .yellow .mutlicolourbtn {
@@ -100,12 +94,6 @@ code {
 }
 
 
-.yellow .mutlicolourbtn:hover {
-  color: #ffb300  !important;
-  border: 1px solid #ffb300  !important;
-  background-color: #ffffff !important;
-  /* box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10); */
-}
 
 
 .row {
@@ -129,14 +117,18 @@ a {
   border-radius: 20px;
   font-weight: 500;
 }
-.uploadbtn{
+.outlinebtn{
   color: #FF6F6F  !important;
   border: 1px solid #FF6F6F  !important;
-  background-color: #ffffff !important;
+  background-color: transparent !important;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
   font-size: 12px;
   font-weight: 600;
 }
-
+.pinkbtn{
+  border: 1px solid #8C57FF;
+  background: var(--add-details-timesheet, #8C57FF);
+  color: #ffffff;
+}
 
 

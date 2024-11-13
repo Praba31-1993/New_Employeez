@@ -159,3 +159,63 @@
     background-color: #FF6363;
     border-radius: 50%;
 }
+
+.totalweeks th:nth-last-child(1) {
+    color: #FF6363 !important;
+    border-bottom: 1px solid var(--stroke, #dadce000);
+}
+
+.totalweeks th:nth-child(1) {
+    border-bottom: 1px solid var(--stroke, #dadce000);
+}
+
+.totalweeks th {
+    border-bottom: 1px solid var(--stroke, #DADCE0);
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+.timesheetlist {
+    width: 20% !important;
+    background-color: #fff;
+    height: 70px;
+    border: 1px solid var(--Timesheet-holiday, #EDE4FF);
+    background: #FCFCFC;
+
+}
+
+.projectlist {
+    background: #F2EDFF;
+    color: #8C57FF;
+    border-radius: 20px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.projectround {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #8C57FF;
+    ;
+}
+
+.inputfield {
+    border: 1px solid var(--Icon-disabled, #CCC);
+}
+
+.inputfield input {
+    width: 100%;
+    background-color: transparent !important;
+    outline: 0 !important;
+    border: 0px !important;
+}
+
+.inputfield:nth-child(8),
+.inputfield:nth-child(7) {
+    background: var(--Timesheet-weekend, #FFF2D7) !important;
+}
+
+.holiday .inputfield {
+    background: var(--Timesheet-holiday, #EDE4FF);
+}
