@@ -1,5 +1,7 @@
+"use client";
 import { LucideIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import './sidebar.css'
 
 interface ISubMenuItem {
   item: {
@@ -7,10 +9,10 @@ interface ISubMenuItem {
     path: string;
     icon: LucideIcon;
   };
-  isActive: boolean;
+  isExpanded: boolean;
 }
 
-const SubMenuItem = ({ item, isActive }: ISubMenuItem) => {
+const SubMenuItem = ({ item, isExpanded }: ISubMenuItem) => {
   const router = useRouter();
   const { name, path, icon: Icon } = item;
 
@@ -20,13 +22,13 @@ const SubMenuItem = ({ item, isActive }: ISubMenuItem) => {
 
   return (
     <div
-      className={`flex items-end p-3 rounded-r-full cursor-pointer ${
-        isActive ? 'bg-red-500 text-white' : 'hover:text-sidebar-active'
+      className={`flex items-center p-3 rounded-r-full cursor-pointer hover:bg-[#f3f3f3] ${
+        isExpanded ? "text-white" : "hover:text-[#ff0000]"
       }`}
       onClick={onClick}
     >
       <Icon size={20} />
-      <p className="text-sm font-semibold mb-0 ml-3">{name}</p>
+      {isExpanded && <p className="text-sm font-semibold ml-3">{name}</p>}
     </div>
   );
 };
