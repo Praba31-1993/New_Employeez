@@ -8,6 +8,7 @@ import Monthlycalendar from "./monthlycalendar";
 import Summarydetails from "./summarydetails";
 import Listofholidays from "./listofholidays";
 import Timesheetcalendar from "./timesheetscalendar";
+import Sidebar from "../sidebar/page";
 
 export default function Timesheet() {
 
@@ -24,33 +25,35 @@ export default function Timesheet() {
 
     return (
         <>
-            <section className="timesheet">
-                <div className="container-fluid mb-3">
-                    <div className="row">
-                        <div className="col-12 pt-3 pb-0">
-                            <h2 className="heading textheader mb-0">Timesheet</h2>
-                        </div>
-                        <div className="col-lg-4 col-xxl-3 borderright" >
-                            <div className="row">
-                                <div className="col-lg-12 col-sm-6">
-                                    <div className="calendar">
-                                        <Monthlycalendar />
+            <Sidebar>
+                <section className="timesheet">
+                    <div className="container-fluid mb-3">
+                        <div className="row">
+                            <div className="col-12 pt-3 pb-0">
+                                <h2 className="heading textheader mb-0">Timesheet</h2>
+                            </div>
+                            <div className="col-lg-4 col-xxl-3 borderright" >
+                                <div className="row">
+                                    <div className="col-lg-12 col-sm-6">
+                                        <div className="calendar">
+                                            <Monthlycalendar />
+                                        </div>
+                                        <Summarydetails></Summarydetails>
                                     </div>
-                                    <Summarydetails></Summarydetails>
+                                    <Listofholidays />
                                 </div>
-                                <Listofholidays />
+                            </div>
+                            {/* timesheet */}
+                            <div className="col-xxl-9 col-lg-8 col-md-12">
+
+                                {/* timesheet */}
+                                <Timesheetcalendar />
                             </div>
                         </div>
-                        {/* timesheet */}
-                        <div className="col-xxl-9 col-lg-8 col-md-12">
-                           
-                            {/* timesheet */}
-                            <Timesheetcalendar/>
-                        </div>
                     </div>
-                </div>
 
-            </section>
+                </section>
+            </Sidebar>
         </>
     )
 }

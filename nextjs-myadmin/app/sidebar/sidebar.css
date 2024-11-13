@@ -1,9 +1,63 @@
+
+.sidebarContainer {
+  display: flex;
+}
+main {
+  width: 100%;
+  padding: 20px;
+}
+.sidebar {
+  background: #fff;
+  color: #6c6a6a;
+  height: 100vh;
+ 
+}
+.top_section {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+ 
+.bars {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.pinIcon {
+  margin-top: 25px;
+}
+ 
+.link {
+  display: flex;
+  color: #6c6a6a;
+  padding: 10px 15px;
+  gap: 15px;
+  width: 80%;
+  border-top-right-radius: 50px; /* Add rounded top-right corner */
+  border-bottom-right-radius: 50px; /* Add rounded bottom-right corner */
+  margin-bottom: 15px;
+}
+ 
+.link:hover {
+  background: red;
+  color: #fff;
+  transition: all 15s ease;
+}
+.active {
+  background-color: red;
+  color: #fff;
+}
+.icon,
+.link_text {
+  font-size: 20px;
+}
+ 
 .menuTextStyle {
-  /* color: #6C6A6A; */
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
-

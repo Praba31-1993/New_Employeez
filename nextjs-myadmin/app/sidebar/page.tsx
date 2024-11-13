@@ -1,96 +1,145 @@
 "use client";
-import logo from "../assets/img/107.png";
+import React, { useState, ReactNode, useEffect } from "react";
+import { usePathname } from "next/navigation"; // Import usePathname
 import Image from "next/image";
-import React, { useState } from "react";
+import Link from "next/link";
+import "./sidebar.css";
+import EZlogo from "../assets/img/employeeslogo.svg";
+import logo from "../assets/img/107.png";
 import Checkbox from "@mui/material/Checkbox";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import {
-  LayoutDashboard,
-  BadgeDollarSign,
-  CircleUserRound,
-  Settings,
-  WalletCards,
-} from "lucide-react";
-import SidebarItem from "./item";
-import "./sidebar.css";
-
+import dashboardWhite from "../assets/img/dashboard-white.svg";
+import dashboardGrey from "../assets/img/dashboard-grey.svg";
+import timesheetGrey from "../assets/img/timesheet_grey.svg";
+import timesheetWhite from "../assets/img/timesheet_white.svg";
+ 
+interface SidebarProps {
+  children: ReactNode;
+}
+ 
 interface ISidebarItem {
   name: string;
   path: string;
   icon: any;
-  items?: ISubItem[];
+  inactive: any;
 }
-
-interface ISubItem {
-  name: string;
-  path: string;
-  icon: any;
-}
-
-const items: ISidebarItem[] = [
-  {
-    name: "Dashboard",
-    path: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    name: "Timesheet",
-    path: "/timesheet",
-    icon: BadgeDollarSign,
-  },
-  {
-    name: "Settings",
-    path: "/settings",
-    icon: Settings,
-    items: [
-      { name: "General", path: "/settings/general", icon: BadgeDollarSign },
-      { name: "Security", path: "/settings/security", icon: LayoutDashboard },
-      { name: "Notifications", path: "/settings/notifications", icon: BadgeDollarSign },
-    ],
-  },
-];
-
-const Sidebar = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isLocked, setIsLocked] = useState(false);
-
+ 
+const Sidebar = ({ children }: SidebarProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const pathname = usePathname(); // Get the current path with usePathname
+ 
+  // Initialize sidebar state based on localStorage value
+  useEffect(() => {
+    const pinned = localStorage.getItem("pinned");
+    if (pinned === "true") {
+      setIsOpen(true);
+      setIsChecked(true);
+    }
+  }, []);
+ 
+  // Handle checkbox change and localStorage update
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsLocked(event.target.checked);
+    const checked = event.target.checked;
+    setIsChecked(checked);
+    localStorage.setItem("pinned", checked.toString());
+    setIsOpen(checked); // Set sidebar open directly if pinned
   };
-
-  const label = { inputProps: { "aria-label": "Toggle Sidebar Expand" } };
-
+ 
+  const menuItem: ISidebarItem[] = [
+    {
+      name: "Dashboard",
+      path: "/dashboard",
+      icon: dashboardWhite,
+      inactive: dashboardGrey,
+    },
+    {
+      name: "Timesheet",
+      path: "/timesheet",
+      icon: timesheetWhite,
+      inactive: timesheetGrey,
+    },
+  ];
+ 
+  // Sidebar open/close hover control only if not pinned
+  const handleMouseEnter = () => {
+    if (!isChecked) setIsOpen(true);
+  };
+ 
+  const handleMouseLeave = () => {
+    if (!isChecked) setIsOpen(false);
+  };
+ 
   return (
-    <div
-      className={`fixed top-0 left-0 h-screen bg-white shadow-lg z-10 transition-width duration-300 
-      ${isExpanded || isLocked ? "w-48" : "w-20 hover:w-48"}`}
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => !isLocked && setIsExpanded(false)}
-    >
-      <div className="flex flex-col items-center w-full pt-6 space-y-6">
-        <div className="flex justify-between items-center w-full px-4">
-          <Image src={logo} alt="Logo" width={isExpanded || isLocked ? 30 : 20} height={isExpanded || isLocked ? 30 : 20} />
-          {(isExpanded || isLocked) && (
-            <Checkbox
-              {...label}
-              className="mt-3"
-              checked={isLocked}
-              onChange={handleCheckboxChange}
-              icon={<RadioButtonUncheckedIcon sx={{ color: "red" }} />}
-              checkedIcon={<RadioButtonCheckedIcon sx={{ color: "red" }} />}
+    <div className="sidebarContainer">
+      <div
+        style={{
+          width: isOpen ? "300px" : "80px",
+          transition: "none", // No transition on initial load
+        }}
+        className="sidebar"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="top_section">
+          <div
+            className="bars"
+            style={{
+              display: "flex",
+              justifyContent: isOpen ? "space-between" : "center",
+            }}
+          >
+            {isOpen ? (
+              <Image src={logo} alt="Logo" />
+            ) : (
+              <Image src={EZlogo} alt="Logo" style={{ margin: "0 auto" }} />
+            )}
+ 
+            {isOpen && (
+              <div className="pinIcon">
+                <Checkbox
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                  icon={<RadioButtonUncheckedIcon sx={{ color: "red" }} />}
+                  checkedIcon={<RadioButtonCheckedIcon sx={{ color: "red" }} />}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+        {menuItem.map((item, index) => (
+          <Link
+            href={item.path}
+            key={index}
+            className={`link ${pathname === item.path ? "active" : ""}`} // Add active class if path matches
+            style={{
+              display: "flex",
+              justifyContent: isOpen ? "flex-start" : "center",
+              alignItems: "center",
+            }}
+          >
+            {/* Conditionally render active or inactive icon */}
+            <Image
+              src={pathname === item.path ? item.icon : item.inactive}
+              alt={`${item.name} Icon`}
             />
-          )}
-        </div>
-
-        <div className="w-full flex flex-col space-y-2">
-          {items.map((item, index) => (
-            <SidebarItem key={index} item={item} isExpanded={isExpanded || isLocked} />
-          ))}
-        </div>
+            <div
+              style={{ display: isOpen ? "block" : "none" }}
+              className="menuTextStyle"
+            >
+              {item.name}
+            </div>
+          </Link>
+        ))}
       </div>
+      <main>{children}</main>
     </div>
   );
 };
-
+ 
 export default Sidebar;
+ 
+ 
+ 
+ 
