@@ -149,7 +149,7 @@
     border-radius: 50%;
 }
 
-.summarydetails div {
+.summarydetails .icons {
     color: white;
     width: fit-content;
     height: fit-content;
@@ -218,4 +218,10 @@
 
 .holiday .inputfield {
     background: var(--Timesheet-holiday, #EDE4FF);
+}
+
+.fileupload {
+    border-radius: 5px;
+    border: 1px dashed #8C57FF;
+    background: #FFF;
 }
