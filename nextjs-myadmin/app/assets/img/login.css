@@ -20,6 +20,14 @@
     top: 0;
   }
   
+  
+.error-text{
+  color:#FF6363;
+  font-size: '12px';
+  font-family: Inter;
+  font-weight: 500;
+}
+
   .logincard {
     width: 70% !important;
     border-radius: 10px;
@@ -66,6 +74,7 @@
   font-size: 15px;
   font-weight: 400;
 }
+
 .forgetpassword {
     color: blue;
   }

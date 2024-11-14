@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation"; // Import usePathname
 import Image from "next/image";
 import Link from "next/link";
 import "./sidebar.css";
-import EZlogo from "../assets/img/employeeslogo.svg";
-import logo from "../assets/img/107.png";
+import EZlogo from "../assets/img/Ez.svg";
+import logo from "../assets/img/employeez.png";
 import Checkbox from "@mui/material/Checkbox";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";

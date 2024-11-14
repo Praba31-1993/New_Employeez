@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import logogif from "../assets/img/dc8146_6fdde6e188a24aa4a8e82abb8e76b330~mv2.gif";
-import logo from "../assets/img/107.png";
+import logogif from "../assets/img/loginanimation.gif";
+import logo from "../assets/img/employeez.png";
 import * as React from "react";
 import "../assets/img/login.css";
 export default function Setpassword() {
