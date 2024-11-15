@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import Outlinebutton from '../reusableComponent/outlinebtn';
 export default function Timesheetcalendar() {
     return (
         <><div className="row mt-3">
@@ -154,16 +155,16 @@ export default function Timesheetcalendar() {
                         </tbody>
                     </table>
                 </div>
-                <div className="col-12 text-end mt-4">
-                    <button className="pinkbtn para2 me-3 px-3 py-1">
-                        I details
-                    </button>
-                    <button className="outlinebtn me-3 px-3 py-1">
-                        save
-                    </button>
-                    <button className="mutlicolourbtn me-3 para2 px-3 py-1">
-                        Submit
-                    </button>
+                <div className="col-12 d-flex  justify-content-end mt-4">
+                    <div className="ms-3">
+                        <Outlinebutton color="#FFF" border="1px solid #8c57ff" text="I details" fontSize="12px" background="#8c57ff" />
+                    </div>
+                    <div className="ms-3">
+                        <Outlinebutton color="#FF6F6F" border="1px solid #FF6F6F" text="Save" fontSize="12px" background="transparent" />
+                    </div>
+                    <div className="ms-3">
+                        <Outlinebutton color="#FFF" border="1px solid #FF6F6F" text="Submit" fontSize="12px" background="#FF6F6F" />
+                    </div>
                 </div>
             </div></>
     )
