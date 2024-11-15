@@ -9,9 +9,7 @@ export default function Monthlycalendar() {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DateCalendar']}>
-                <DateCalendar
-                    views={['year', 'month', 'day']}
-                />
+                <DateCalendar views={['year', 'month', 'day']} />
             </DemoContainer>
         </LocalizationProvider>
     );

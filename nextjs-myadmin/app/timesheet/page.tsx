@@ -2,18 +2,15 @@
 
 
 import "./timesheet.css"
-import * as React from 'react';
+import React, { useState } from "react";
 import { useEffect } from 'react';
 import Monthlycalendar from "./monthlycalendar";
 import Summarydetails from "./summarydetails";
 import Listofholidays from "./listofholidays";
 import Timesheetcalendar from "./timesheetscalendar";
 import Sidebar from "../sidebar/page";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import Image from 'next/image';
-import uploadicon from '../assets/img/upload-2-line.png';
-import Outlinebutton from "../reusableComponent/outlinebtn";
+import Uploadfiles from "./uploadfiles";
+
 
 export default function Timesheet() {
 
@@ -26,6 +23,7 @@ export default function Timesheet() {
             document.body.classList.remove('dashboard-body');
         };
     }, []);
+
 
 
     return (
@@ -56,33 +54,9 @@ export default function Timesheet() {
                             </div>
                         </div>
                     </div>
-
+                    <Uploadfiles />
                 </section>
-                {/* <section className="showpopup showpopupactive">
-                    <div className="summarysection">
-                        <div className="container-fluid">
-                            <div className="row">
-                                <div className="col-12 text-end">
-                                    <FontAwesomeIcon className="my-2" icon={faXmark} />
-                                </div>
 
-                            </div>
-                            <div className="row mt-3 px-5">
-                                <div className="col-12 ">
-                                    <div className="summarydetails p-3 m-2">
-                                        <h5 className="para  textheader">Choose file </h5>
-                                        <div className="fileupload py-4 d-flex align-items-center flex-column justify-content-center mt-3">
-                                            <Image src={uploadicon} alt={""} />
-                                            <h2 className="heading2 mt-2 textheader">Drag and drop your file here</h2>
-                                            <p className="headindg unselectcolor">or</p>
-                                            <Outlinebutton  color="#8C57FF" border="1px solid #8C57FF" text="Browse File" fontSize="12px"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
             </Sidebar>
         </>
     )

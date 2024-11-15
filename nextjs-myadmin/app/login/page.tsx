@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logogif from "../assets/img/loginanimation.gif";
@@ -15,6 +15,9 @@ import {
   validatePassword,
 } from "../reusableComponent/validation";
 import { Messages } from "../reusableComponent/messages";
+import { faEye, faEyeSlash, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 export default function Login() {
   const [checked, setChecked] = React.useState(false);
@@ -44,6 +47,10 @@ export default function Login() {
     if (event.target.checked) {
       setErrors((prevErrors) => ({ ...prevErrors, checkbox: "" }));
     }
+  };
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
   // Handle input change and set state
@@ -106,20 +113,45 @@ export default function Login() {
                   value={userId}
                   onChange={handleInputChange}
                 />
-                {errors.userId && (
-                  <p className="error-text mt-1">{errors.userId}</p>
-                )}
 
-                <input
-                  className="ps-3 py-2 mt-3"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={password}
-                  onChange={handleInputChange}
-                />
+                {errors.userId && (
+                  <p className="error-text mb-0 mt-1">{errors.userId}</p>
+                )}
+                <div style={{ position: "relative" }}>
+                  <input
+                    className="ps-3 py-2 mt-3"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    name="password"
+                    value={password}
+                    onChange={handleInputChange}
+                  />
+                  {showPassword ? (
+                    <FontAwesomeIcon className="d-flex align-items-center  h-100 " icon={faEyeSlash}
+                      style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "10px",
+                        cursor: "pointer",
+                        width: "5%"
+                      }} onClick={togglePasswordVisibility}
+                    />
+                  ) : (
+                    <FontAwesomeIcon className="d-flex align-items-center  h-100 " icon={faEye}
+                      style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "10px",
+                        cursor: "pointer",
+                        width: "5%"
+                      }} onClick={togglePasswordVisibility}
+                    />
+                  )}
+                </div>
+
+
                 {errors.password && (
-                  <p className="error-text mt-1">{errors.password}</p>
+                  <p className="error-text mb-0 mt-1">{errors.password}</p>
                 )}
 
                 <div className="row pt-2">

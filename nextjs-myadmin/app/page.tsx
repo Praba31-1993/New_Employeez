@@ -3,7 +3,6 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { ColorProvider } from './ColorContext/page';
 // import { useColor } from '../ColorContext/page';
 export default function Home() {
   const router = useRouter();
