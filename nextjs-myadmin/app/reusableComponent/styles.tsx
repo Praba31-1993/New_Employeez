@@ -5,6 +5,7 @@ export const Colors = {
   normalText: "#A8A8A8",
   darkThemeMode: "#282C34",
   white: "#FFFFFF",
+  grey:'#F4F4F4'
 };
 
 export const TextStyles = {

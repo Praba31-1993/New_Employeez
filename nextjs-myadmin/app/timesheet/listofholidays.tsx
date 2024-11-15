@@ -1,10 +1,12 @@
 
 import calendar from '../assets/img/calendar_icon.png';
-import user from '../assets/img/Ellipse 14.png';
+// import user from '../assets/img/Ellipse 14.png';
 import carry from '../assets/img/carry_on_bag_icon.png';
 import gift from '../assets/img/gift_icon.png';
 import docs from '../assets/img/docs.png';
 import Image from 'next/image';
+import Avatar from "@mui/material/Avatar";
+
 
 export default function Listofholidays() {
     return (
@@ -15,7 +17,8 @@ export default function Listofholidays() {
                 <p className="para ps-2 mb-0 unselectcolor">Timesheet approver</p>
             </div>
             <div className="approverlist  align-items-center d-flex mt-2">
-                <Image src={user} alt={""} />
+                {/* <Image src={user} alt={""} /> */}
+                <Avatar src=''/>
                 <div className="roles">
                     <h5 className="para ps-2 mb-0 ">Timesheet approver</h5>
                     <p className="para2 ps-2 mb-0 mt-1 shade">Timesheet approver</p>

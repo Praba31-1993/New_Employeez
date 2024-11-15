@@ -1,11 +1,17 @@
+"use client";
 import React from "react";
 import Sidebar from "../sidebar/page";
+import SearchBar from "../reusableComponent/searchbar";
+import Stack from "@mui/material/Stack";
 
 const Dashboard = () => {
+
+
   return (
-    <div style={{background:'#F5F5F5'}}>
-      < Sidebar>
+    <div>
+      <Sidebar>
         <p>Dashboard</p>
+      
       </Sidebar>
     </div>
   );

@@ -13,23 +13,25 @@ import dashboardWhite from "../assets/img/dashboard-white.svg";
 import dashboardGrey from "../assets/img/dashboard-grey.svg";
 import timesheetGrey from "../assets/img/timesheet_grey.svg";
 import timesheetWhite from "../assets/img/timesheet_white.svg";
- 
+import PrimarySearchAppBar from "../reusableComponent/appbar";
+import NavbarComponent from "../reusableComponent/appbar";
+
 interface SidebarProps {
   children: ReactNode;
 }
- 
+
 interface ISidebarItem {
   name: string;
   path: string;
   icon: any;
   inactive: any;
 }
- 
+
 const Sidebar = ({ children }: SidebarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const pathname = usePathname(); // Get the current path with usePathname
- 
+
   // Initialize sidebar state based on localStorage value
   useEffect(() => {
     const pinned = localStorage.getItem("pinned");
@@ -38,7 +40,7 @@ const Sidebar = ({ children }: SidebarProps) => {
       setIsChecked(true);
     }
   }, []);
- 
+
   // Handle checkbox change and localStorage update
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
@@ -46,7 +48,7 @@ const Sidebar = ({ children }: SidebarProps) => {
     localStorage.setItem("pinned", checked.toString());
     setIsOpen(checked); // Set sidebar open directly if pinned
   };
- 
+
   const menuItem: ISidebarItem[] = [
     {
       name: "Dashboard",
@@ -61,22 +63,22 @@ const Sidebar = ({ children }: SidebarProps) => {
       inactive: timesheetGrey,
     },
   ];
- 
+
   // Sidebar open/close hover control only if not pinned
   const handleMouseEnter = () => {
     if (!isChecked) setIsOpen(true);
   };
- 
+
   const handleMouseLeave = () => {
     if (!isChecked) setIsOpen(false);
   };
- 
+
   return (
     <div className="sidebarContainer">
       <div
         style={{
           width: isOpen ? "300px" : "80px",
-          transition: "none", // No transition on initial load
+          transition: "none",
         }}
         className="sidebar"
         onMouseEnter={handleMouseEnter}
@@ -95,7 +97,7 @@ const Sidebar = ({ children }: SidebarProps) => {
             ) : (
               <Image src={EZlogo} alt="Logo" style={{ margin: "0 auto" }} />
             )}
- 
+
             {isOpen && (
               <div className="pinIcon">
                 <Checkbox
@@ -133,13 +135,12 @@ const Sidebar = ({ children }: SidebarProps) => {
           </Link>
         ))}
       </div>
-      <main>{children}</main>
+      <main style={{ background: "#F4F4F4" }}>
+        <NavbarComponent />
+        <div style={{padding:'0 50px 0 20px'}}>{children}</div>
+      </main>
     </div>
   );
 };
- 
+
 export default Sidebar;
- 
- 
- 
- 
