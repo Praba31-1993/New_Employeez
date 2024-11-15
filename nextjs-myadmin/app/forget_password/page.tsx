@@ -38,9 +38,9 @@ export default function forgetpassword() {
   const handleClick = () => {
     // Your custom logic here (e.g., validate OTP, log analytics, etc.)
     console.log("OTP verification clicked");
-
     // Now manually navigate to the /setpassword page
     router.push("/set_password");
+
   };
   // State to control visibility of OTP input and Verify button
 

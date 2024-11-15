@@ -1,16 +1,15 @@
-
 .sidebarContainer {
   display: flex;
 }
 main {
   width: 100%;
-  padding: 20px;
 }
 .sidebar {
-  background: #fff;
+  background: #f4f4f4;
   color: #6c6a6a;
   height: 100vh;
- 
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: 1px solid #6962621f;
 }
 .top_section {
   display: flex;
@@ -19,7 +18,7 @@ main {
   justify-content: space-between;
   margin-bottom: 15px;
 }
- 
+
 .bars {
   display: flex;
   justify-content: space-between;
@@ -28,7 +27,7 @@ main {
 .pinIcon {
   margin-top: 25px;
 }
- 
+
 .link {
   display: flex;
   color: #6c6a6a;
@@ -39,7 +38,7 @@ main {
   border-bottom-right-radius: 50px; /* Add rounded bottom-right corner */
   margin-bottom: 15px;
 }
- 
+
 .link:hover {
   background: red;
   color: #fff;
@@ -53,7 +52,7 @@ main {
 .link_text {
   font-size: 20px;
 }
- 
+
 .menuTextStyle {
   font-family: Inter;
   font-size: 15px;
